@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторские кухни из слэбов | Столярное ателье</title>
+    
+    <!-- Подключение премиальных шрифтов от Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* Базовые переменные цветов (Тихая роскошь) */
+        :root {
+            --bg-color: #F9F8F6; /* Теплый светло-серый/льняной */
+            --text-main: #222222; /* Мягкий черный */
+            --text-light: #666666; /* Серый для описаний */
+            --accent: #A67C52; /* Цвет дерева/дуба */
+            --white: #FFFFFF;
+        }
+
+        /* Сброс стилей */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        /* Навигация */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 24px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(249, 248, 246, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-main);
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 32px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Главный экран (Hero) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            margin-top: 40px;
+            gap: 5%;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .hero-image {
+            flex: 1;
+            height: 70vh;
+            background-image: url('hero-kitchen.jpg'); /* СЮДА НУЖНО ФОТО */
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            background-color: #E5E5E5; /* Заглушка, пока нет фото */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background-color: var(--text-main);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-main);
+            color: var(--white);
+        }
+
+        /* Секции */
+        section {
+            padding: 120px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        /* Концепты (Галерея) */
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .concept-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .concept-img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background-size: cover;
+            background-position: center;
+            background-color: #E5E5E5;
+            margin-bottom: 24px;
+        }
+
+        .concept-card h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .concept-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Материалы */
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .material-item {
+            text-align: center;
+        }
+
+        .material-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%; /* Круглые фото материалов */
+            background-color: #E5E5E5;
+            margin-bottom: 16px;
+        }
+
+        /* Форма заявки */
+        .contact-section {
+            background-color: #EFECE8;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-bottom: 1px solid var(--text-main);
+        }
+
+        /* Анимация появления при скролле */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Подвал */
+        footer {
+            padding: 40px 5%;
+            background-color: var(--text-main);
+            color: var(--white);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Мобильная адаптация */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                height: auto;
+                padding-top: 120px;
+            }
+            .hero h1 { font-size: 40px; }
+            .hero-image { width: 100%; height: 50vh; margin-top: 40px; }
+            nav { display: none; } /* Скрываем меню на мобильном для MVP */
+            .materials-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <a href="#" class="logo">WOOD & FORM</a>
+        <nav>
+            <a href="#philosophy">О подходе</a>
+            <a href="#concepts">Концепты</a>
+            <a href="#materials">Материалы</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero fade-in">
+        <div class="hero-text">
+            <h1>Кухни, у которых есть характер.</h1>
+            <p>Мы объединили инженерную точность современных заводских корпусов и первобытную эстетику фасадов из цельных слэбов ценных пород дерева.</p>
+            <a href="#contact" class="btn">Обсудить проект</a>
+            <a href="#concepts" class="btn btn-outline" style="margin-left: 16px;">Смотреть стили</a>
+        </div>
+        <div class="hero-image" style="background-image: url('hero-kitchen.jpg');">
+            <!-- Текст-заглушка исчезнет, когда появится картинка -->
+            <span style="color: #999;">[ hero-kitchen.jpg 1920x1080 ]</span>
+        </div>
+    </section>
+
+    <!-- Философия -->
+    <section id="philosophy" class="fade-in">
+        <div class="section-header">
+            <h2>Не имитация. Настоящее дерево.</h2>
+            <p>В отличие от шпона или ЛДСП, каждый слэб уникален. Мы подбираем рисунок волокон так, чтобы он перетекал с одного фасада на другой. Технология правильной сушки и покрытие премиальным маслом защищают дерево от влаги и кухонной среды.</p>
+        </div>
+    </section>
+
+    <!-- Концепты (Галерея) -->
+    <section id="concepts" class="fade-in">
+        <div class="section-header">
+            <h2>Концепции дизайна</h2>
+            <p>Вдохновение для вашего проекта. Каждая кухня проектируется индивидуально под ваши размеры и геометрию помещения.</p>
+        </div>
+        
+        <div class="concepts-grid">
+            <!-- Карточка 1 -->
+            <div class="concept-card">
+                <div class="concept-img" style="background-image: url('concept-1.jpg');">
+                    <span style="color: #999; display:flex; height:100%; align-items:center; justify-content:center;">[ concept-1.jpg 1080x1350 ]</span>
+                </div>
+                <h3>Скандинавский минимализм</h3>
+                <p>Светлый дуб, заливка трещин прозрачной смолой, матовые серые корпуса.</p>
+            </div>
+            
+            <!-- Карточка 2 -->
+            <div class="concept-card">
+                <div class="concept-img" style="background-image: url('concept-2.jpg');">
+                    <span style="color: #999; display:flex; height:100%; align-items:center; justify-content:center;">[ concept-2.jpg 1080x1350 ]</span>
+                </div>
+                <h3>Темная архитектура</h3>
+                <p>Тонированный карагач, сохранение живого края, скрытые ручки профиля Gola.</p>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="concept-card">
+                <div class="concept-img" style="background-image: url('concept-3.jpg');">
+                    <span style="color: #999; display:flex; height:100%; align-items:center; justify-content:center;">[ concept-3.jpg 1080x1350 ]</span>
+                </div>
+                <h3>Теплый лофт</h3>
+                <p>Американский орех, выраженная текстура, графитовые элементы корпусов.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Материалы -->
+    <section id="materials" class="fade-in">
+        <div class="section-header">
+            <h2>Благородные породы</h2>
+            <p>Мы работаем только с массивом. Вы сами выбираете слэб в нашей мастерской до того, как он станет вашей кухней.</p>
+        </div>
+        <div class="materials-grid">
+            <div class="material-item">
+                <div class="material-img" style="background-image: url('material-oak.jpg');">
+                    <span style="color: #999; display:flex; height:100%; align-items:center; justify-content:center; text-align:center;">[ material-oak.jpg<br>800x800 ]</span>
+                </div>
+                <h3>Массив Дуба</h3>
+            </div>
+            <div class="material-item">
+                <div class="material-img" style="background-image: url('material-walnut.jpg');">
+                    <span style="color: #999; display:flex; height:100%; align-items:center; justify-content:center; text-align:center;">[ material-walnut.jpg<br>800x800 ]</span>
+                </div>
+                <h3>Американский Орех</h3>
+            </div>
+            <div class="material-item">
+                <div class="material-img" style="background-image: url('material-elm.jpg');">
+                    <span style="color: #999; display:flex; height:100%; align-items:center; justify-content:center; text-align:center;">[ material-elm.jpg<br>800x800 ]</span>
+                </div>
+                <h3>Горный Карагач</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты / Заявка -->
+    <section id="contact" class="contact-section fade-in">
+        <div class="section-header">
+            <h2>Рассчитать проект</h2>
+            <p>Оставьте контакты, и наш технолог свяжется с вами для обсуждения размеров, материалов и ориентировочного бюджета.</p>
+        </div>
+        
+        <form class="contact-form" action="#" method="POST">
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="tel" placeholder="Телефон или WhatsApp" required>
+            <button type="submit" class="btn" style="margin-top: 16px;">Получить консультацию</button>
+            <p style="font-size: 12px; color: var(--text-light); margin-top: 8px;">Для дизайнеров интерьера действуют специальные условия сотрудничества.</p>
+        </form>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <p>© 2024 WOOD & FORM. Столярное ателье премиальных кухонь.</p>
+    </footer>
+
+    <!-- Скрипт для плавной анимации появления блоков при скролле -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
