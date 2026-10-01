@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Авторские кухни из слэбов | Столярное ателье</title>
+    <title>Авторские кухни из слэбов | Столярное ателье WOOD & FORM</title>
     
     <!-- Подключение премиальных шрифтов от Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,19 +13,15 @@
     <style>
         /* Базовые переменные цветов (Тихая роскошь) */
         :root {
-            --bg-color: #F9F8F6; /* Теплый светло-серый/льняной */
+            --bg-color: #F9F8F6; /* Теплый светло-серый */
+            --bg-white: #FFFFFF; /* Белый для чередования секций */
             --text-main: #222222; /* Мягкий черный */
             --text-light: #666666; /* Серый для описаний */
             --accent: #A67C52; /* Цвет дерева/дуба */
             --white: #FFFFFF;
         }
 
-        /* Сброс стилей */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -35,7 +31,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
         }
@@ -74,11 +70,9 @@
             transition: color 0.3s ease;
         }
 
-        nav a:hover {
-            color: var(--accent);
-        }
+        nav a:hover { color: var(--accent); }
 
-        /* Главный экран (Hero) */
+        /* Главный экран */
         .hero {
             height: 100vh;
             display: flex;
@@ -88,34 +82,18 @@
             gap: 5%;
         }
 
-        .hero-text {
-            flex: 1;
-            max-width: 600px;
-        }
-
-        .hero h1 {
-            font-size: 56px;
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: var(--text-light);
-            margin-bottom: 40px;
-        }
+        .hero-text { flex: 1; max-width: 600px; }
+        .hero h1 { font-size: 56px; line-height: 1.1; margin-bottom: 24px; }
+        .hero p { font-size: 18px; color: var(--text-light); margin-bottom: 40px; }
 
         .hero-image {
             flex: 1;
             height: 70vh;
-            background-image: url('IMG/hero-kitchen.webp'); /* СЮДА НУЖНО ФОТО */
+            background-image: url('img/hero-kitchen.webp');
             background-size: cover;
             background-position: center;
             border-radius: 4px;
-            background-color: #E5E5E5; /* Заглушка, пока нет фото */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-color: #E5E5E5;
         }
 
         /* Кнопки */
@@ -132,171 +110,124 @@
             cursor: pointer;
             transition: background 0.3s ease;
         }
-
-        .btn:hover {
-            background-color: var(--accent);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--text-main);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--text-main);
-            color: var(--white);
-        }
+        .btn:hover { background-color: var(--accent); }
+        .btn-outline { background-color: transparent; color: var(--text-main); border: 1px solid var(--text-main); }
+        .btn-outline:hover { background-color: var(--text-main); color: var(--white); }
 
         /* Секции */
-        section {
-            padding: 120px 5%;
-        }
+        section { padding: 120px 5%; }
+        .bg-white { background-color: var(--bg-white); }
+        
+        .section-header { text-align: center; margin-bottom: 64px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .section-header h2 { font-size: 40px; margin-bottom: 16px; }
+        .section-header p { color: var(--text-light); font-size: 16px; }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 64px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        /* ИСТОРИЯ: Две стихии */
+        .history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .history-card { display: flex; flex-direction: column; }
+        .history-img { width: 100%; aspect-ratio: 4/3; background-size: cover; background-position: center; background-color: #E5E5E5; margin-bottom: 24px; }
+        .history-card h3 { font-size: 28px; margin-bottom: 12px; }
+        .history-card p { color: var(--text-light); font-size: 16px; }
 
-        .section-header h2 {
-            font-size: 40px;
-            margin-bottom: 16px;
-        }
-
-        .section-header p {
-            color: var(--text-light);
-            font-size: 16px;
-        }
-
-        /* Концепты (Галерея) */
-        .concepts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .concept-card {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .concept-img {
-            width: 100%;
-            aspect-ratio: 4/5;
-            background-size: cover;
-            background-position: center;
-            background-color: #E5E5E5;
-            margin-bottom: 24px;
-        }
-
-        .concept-card h3 {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-
-        .concept-card p {
-            color: var(--text-light);
-            font-size: 14px;
-        }
+        /* Концепты */
+        .concepts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .concept-card { display: flex; flex-direction: column; }
+        .concept-img { width: 100%; aspect-ratio: 4/5; background-size: cover; background-position: center; background-color: #E5E5E5; margin-bottom: 24px; }
+        .concept-card h3 { font-size: 24px; margin-bottom: 8px; }
+        .concept-card p { color: var(--text-light); font-size: 14px; }
 
         /* Материалы */
-        .materials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
+        .materials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .material-item { text-align: center; }
+        .material-img { width: 100%; aspect-ratio: 1/1; background-size: cover; background-position: center; border-radius: 50%; background-color: #E5E5E5; margin-bottom: 16px; }
 
-        .material-item {
-            text-align: center;
-        }
+        /* ЭТАПЫ РАБОТЫ */
+        .steps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+        .step-card { position: relative; padding-top: 24px; border-top: 1px solid rgba(0,0,0,0.1); }
+        .step-number { font-family: 'Playfair Display', serif; font-size: 48px; color: var(--accent); opacity: 0.4; line-height: 1; margin-bottom: 16px; display: block; }
+        .step-card h4 { font-size: 18px; margin-bottom: 8px; font-family: 'Inter', sans-serif; font-weight: 500; }
+        .step-card p { font-size: 14px; color: var(--text-light); }
 
-        .material-img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background-size: cover;
-            background-position: center;
-            border-radius: 50%; /* Круглые фото материалов */
-            background-color: #E5E5E5;
-            margin-bottom: 16px;
-        }
+        /* ГАРАНТИИ */
+        .guarantees-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
+        .guarantee-card h3 { font-size: 24px; margin-bottom: 12px; }
+        .guarantee-card p { color: var(--text-light); font-size: 15px; }
+
+        /* ОПЛАТА И ДОГОВОР */
+        .payment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .payment-info h3 { font-size: 32px; margin-bottom: 24px; }
+        .payment-info p { color: var(--text-light); margin-bottom: 16px; font-size: 16px; }
+        .payment-info ul { list-style: none; margin-bottom: 24px; }
+        .payment-info ul li { margin-bottom: 12px; padding-left: 24px; position: relative; color: var(--text-main); }
+        .payment-info ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+        .b2b-block { background: var(--bg-color); padding: 32px; border-left: 4px solid var(--accent); }
+        .b2b-block h4 { font-family: 'Inter', sans-serif; font-size: 18px; margin-bottom: 8px; }
+
+        /* ЛИЦА БРЕНДА */
+        .founders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 900px; margin: 0 auto; }
+        .founder-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .founder-img { width: 240px; height: 240px; border-radius: 50%; background-size: cover; background-position: center; background-color: #E5E5E5; margin-bottom: 24px; filter: grayscale(100%); transition: filter 0.4s ease; }
+        .founder-card:hover .founder-img { filter: grayscale(0%); }
+        .founder-card h4 { font-size: 24px; margin-bottom: 4px; }
+        .founder-card span { font-size: 12px; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; margin-bottom: 20px; display: block; }
+        .founder-quote { font-style: italic; color: var(--text-light); font-size: 16px; position: relative; padding-top: 20px; }
+        .founder-quote::before { content: '“'; font-size: 60px; color: rgba(0,0,0,0.05); position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-family: 'Playfair Display', serif; }
 
         /* Форма заявки */
-        .contact-section {
-            background-color: #EFECE8;
-            text-align: center;
-        }
+        .contact-section { background-color: #EFECE8; text-align: center; }
+        .contact-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+        input { width: 100%; padding: 16px 0; background: transparent; border: none; border-bottom: 1px solid rgba(0,0,0,0.2); font-family: 'Inter', sans-serif; font-size: 16px; outline: none; transition: border-color 0.3s ease; }
+        input:focus { border-bottom: 1px solid var(--text-main); }
+        .whatsapp-link-text { display: inline-block; margin-top: 16px; color: var(--text-main); text-decoration: underline; font-weight: 500; font-size: 15px; }
+        .whatsapp-link-text:hover { color: #25D366; }
 
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
+        /* ПЛАВАЮЩИЙ WHATSAPP */
+        .whatsapp-sticky { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1000; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .whatsapp-sticky:hover { transform: scale(1.05); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+        .whatsapp-sticky svg { width: 32px; height: 32px; fill: currentColor; }
 
-        input {
-            width: 100%;
-            padding: 16px 0;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid rgba(0,0,0,0.2);
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
+        /* ПОДВАЛ (FOOTER) */
+        footer { background-color: var(--text-main); color: var(--white); padding: 80px 5% 40px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 60px; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 16px; display: block; color: var(--white); text-decoration: none; }
+        .footer-about { color: #AAAAAA; font-size: 14px; max-width: 300px; }
+        .footer-col h4 { font-family: 'Inter', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px; color: var(--accent); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: #AAAAAA; text-decoration: none; font-size: 14px; transition: color 0.3s ease; }
+        .footer-col ul li a:hover { color: var(--white); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; color: #666666; font-size: 12px; }
+        .footer-bottom a { color: #666666; text-decoration: none; }
+        .footer-bottom a:hover { color: #AAAAAA; }
 
-        input:focus {
-            border-bottom: 1px solid var(--text-main);
-        }
-
-        /* Анимация появления при скролле */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Подвал */
-        footer {
-            padding: 40px 5%;
-            background-color: var(--text-main);
-            color: var(--white);
-            text-align: center;
-            font-size: 14px;
-        }
+        /* Анимация */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         /* Мобильная адаптация */
         @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                height: auto;
-                padding-top: 120px;
-            }
+            .hero { flex-direction: column; height: auto; padding-top: 120px; }
             .hero h1 { font-size: 40px; }
             .hero-image { width: 100%; height: 50vh; margin-top: 40px; }
-            nav { display: none; } /* Скрываем меню на мобильном для MVP */
-            .materials-grid { grid-template-columns: 1fr; }
+            nav { display: none; }
+            .history-grid, .founders-grid, .payment-grid, .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .materials-grid, .guarantees-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+            .whatsapp-sticky { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+            .whatsapp-sticky svg { width: 26px; height: 26px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Шапка сайта -->
     <header>
         <a href="#" class="logo">WOOD & FORM</a>
         <nav>
-            <a href="#philosophy">О подходе</a>
+            <a href="#history">История</a>
             <a href="#concepts">Концепты</a>
-            <a href="#materials">Материалы</a>
+            <a href="#workflow">Процесс</a>
+            <a href="#guarantees">Гарантии</a>
             <a href="#contact">Контакты</a>
         </nav>
     </header>
@@ -307,19 +238,30 @@
             <h1>Кухни, у которых есть характер.</h1>
             <p>Мы объединили инженерную точность современных заводских корпусов и первобытную эстетику фасадов из цельных слэбов ценных пород дерева.</p>
             <a href="#contact" class="btn">Обсудить проект</a>
-            <a href="#concepts" class="btn btn-outline" style="margin-left: 16px;">Смотреть стили</a>
+            <!-- Ссылка ведет на WhatsApp. Вставьте свой номер вместо 79990000000 -->
+            <a href="https://wa.me/79990000000?text=Здравствуйте!%20Хочу%20рассчитать%20стоимость%20кухни%20из%20слэба." target="_blank" class="btn btn-outline" style="margin-left: 16px; border-color: #25D366; color: #25D366;">Написать в WhatsApp</a>
         </div>
-        <div class="hero-image" style="background-image: url('IMG/hero-kitchen.webp');">
-            <!-- Текст-заглушка исчезнет, когда появится картинка -->
-            <span style="color: #999;"></span>
-        </div>
+        <div class="hero-image" style="background-image: url('img/hero-kitchen.webp');"></div>
     </section>
 
-    <!-- Философия -->
-    <section id="philosophy" class="fade-in">
+    <!-- ИСТОРИЯ: Две стихии -->
+    <section id="history" class="bg-white fade-in">
         <div class="section-header">
-            <h2>Не имитация. Настоящее дерево.</h2>
-            <p>В отличие от шпона или ЛДСП, каждый слэб уникален. Мы подбираем рисунок волокон так, чтобы он перетекал с одного фасада на другой. Технология правильной сушки и покрытие премиальным маслом защищают дерево от влаги и кухонной среды.</p>
+            <h2>Синтез двух экспертиз</h2>
+            <p>Идеальная кухня из массива не может быть создана только столярами или только мебельщиками. Наш бренд — это объединение двух сильных мастерских с общим опытом 18 лет.</p>
+        </div>
+        
+        <div class="history-grid">
+            <div class="history-card">
+                <div class="history-img" style="background-image: url('img/history-slabs.webp');"></div>
+                <h3>8 лет работы с массивом</h3>
+                <p>Мы знаем, как укротить дикое дерево. Правильная сушка в камерах, снятие внутреннего напряжения слэба, ювелирная работа с эпоксидной смолой и сохранение природного «живого» края. Дерево на наших кухнях не ведет и не коробит.</p>
+            </div>
+            <div class="history-card">
+                <div class="history-img" style="background-image: url('img/history-cases.webp');"></div>
+                <h3>10 лет инженерной точности</h3>
+                <p>Проектирование сложной корпусной мебели. Мы отвечаем за идеальную геометрию, скрытые механизмы, безупречные зазоры, кухонную эргономику и правильную интеграцию любой бытовой техники.</p>
+            </div>
         </div>
     </section>
 
@@ -331,31 +273,55 @@
         </div>
         
         <div class="concepts-grid">
-            <!-- Карточка 1 -->
             <div class="concept-card">
-                <div class="concept-img" style="background-image: url('IMG/concept-1.webp');">
-                    <span style="color: #999; display:flex; height:100%; align-items:center; justify-content:center;"></span>
-                </div>
+                <div class="concept-img" style="background-image: url('img/concept-1.webp');"></div>
                 <h3>Скандинавский минимализм</h3>
-                <p>Светлый дуб, заливка трещин прозрачной смолой, матовые серые корпуса.</p>
+                <p>Светлый дуб, заливка трещин матовой смолой, фасады без ручек.</p>
             </div>
-            
-            <!-- Карточка 2 -->
             <div class="concept-card">
-                <div class="concept-img" style="background-image: url('IMG/concept-2.webp');">
-                    <span style="color: #999; display:flex; height:100%; align-items:center; justify-content:center;"></span>
-                </div>
+                <div class="concept-img" style="background-image: url('img/concept-2.webp');"></div>
                 <h3>Темная архитектура</h3>
-                <p>Тонированный карагач, сохранение живого края, скрытые ручки профиля Gola.</p>
+                <p>Тонированный карагач, сохранение живого края, профиль Gola.</p>
             </div>
-
-            <!-- Карточка 3 -->
             <div class="concept-card">
-                <div class="concept-img" style="background-image: url('IMG/concept-3.webp');">
-                    <span style="color: #999; display:flex; height:100%; align-items:center; justify-content:center;"></span>
-                </div>
+                <div class="concept-img" style="background-image: url('img/concept-3.webp');"></div>
                 <h3>Теплый лофт</h3>
-                <p>Американский орех, выраженная текстура, графитовые элементы корпусов.</p>
+                <p>Американский орех, выраженная текстура, графитовые элементы.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЭТАПЫ РАБОТЫ (ВОРОНКА) -->
+    <section id="workflow" class="bg-white fade-in">
+        <div class="section-header">
+            <h2>Как создается ваша кухня</h2>
+            <p>Понятный и прозрачный процесс работы: от первого расчета до финального монтажа у вас дома.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <span class="step-number">01</span>
+                <h4>Предварительный расчет</h4>
+                <p>Пришлите размеры помещения или дизайн-проект в мессенджер. Мы сделаем просчет и предложим варианты фактур дерева.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-number">02</span>
+                <h4>Замер и выбор слэба</h4>
+                <p>Наш технолог выезжает на объект для точного инженерного замера. Вы лично выбираете слэбы для фасадов в нашей мастерской.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-number">03</span>
+                <h4>Договор и 3D-проект</h4>
+                <p>Фиксируем цену и сроки в договоре. Создаем детальную 3D-модель вашей кухни и выдаем чертежи розеток для строителей.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-number">04</span>
+                <h4>Производство (45-60 дней)</h4>
+                <p>Столярный цех и малярная камера. Слэбы проходят стабилизацию и покрываются защитными маслами. Присылаем фото процесса.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-number">05</span>
+                <h4>Ювелирный монтаж</h4>
+                <p>Доставляем кухню, аккуратно собираем, интегрируем технику и выносим за собой всю упаковку. Идеальный результат.</p>
             </div>
         </div>
     </section>
@@ -364,26 +330,85 @@
     <section id="materials" class="fade-in">
         <div class="section-header">
             <h2>Благородные породы</h2>
-            <p>Мы работаем только с массивом. Вы сами выбираете слэб в нашей мастерской до того, как он станет вашей кухней.</p>
+            <p>Вы сами выбираете слэб в нашей мастерской до того, как он станет вашей кухней.</p>
         </div>
         <div class="materials-grid">
             <div class="material-item">
-                <div class="material-img" style="background-image: url('IMG/material-oak.webp');">
-                    <span style="color: #999; display:flex; height:100%; align-items:center; justify-content:center; text-align:center;"></span>
-                </div>
+                <div class="material-img" style="background-image: url('img/material-oak.webp');"></div>
                 <h3>Массив Дуба</h3>
             </div>
             <div class="material-item">
-                <div class="material-img" style="background-image: url('IMG/material-walnut.webp');">
-                    <span style="color: #999; display:flex; height:100%; align-items:center; justify-content:center; text-align:center;"></span>
-                </div>
+                <div class="material-img" style="background-image: url('img/material-walnut.webp');"></div>
                 <h3>Американский Орех</h3>
             </div>
             <div class="material-item">
-                <div class="material-img" style="background-image: url('IMG/material-elm.webp');">
-                    <span style="color: #999; display:flex; height:100%; align-items:center; justify-content:center; text-align:center;"></span>
-                </div>
+                <div class="material-img" style="background-image: url('img/material-elm.webp');"></div>
                 <h3>Горный Карагач</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- ГАРАНТИИ И СЕРВИС -->
+    <section id="guarantees" class="bg-white fade-in">
+        <div class="section-header">
+            <h2>Инженерная надежность</h2>
+            <p>Мы снимаем все страхи, связанные с использованием натурального массива на кухне.</p>
+        </div>
+        <div class="guarantees-grid">
+            <div class="guarantee-card">
+                <h3>Защита от влаги</h3>
+                <p>Используем профессиональные лаки и масла Osmo в 3 слоя. Фасады не боятся пара из духовки, брызг воды, жира и перепадов температур. Дерево дышит, но не деформируется.</p>
+            </div>
+            <div class="guarantee-card">
+                <h3>Премиальная фурнитура</h3>
+                <p>Интегрируем лучшие австрийские и немецкие механизмы (Blum / Hettich). Плавный ход ящиков, надежные петли с доводчиками и гарантия производителя на десятилетия.</p>
+            </div>
+            <div class="guarantee-card">
+                <h3>Пост-сервис и реставрация</h3>
+                <p>Главный плюс массива: его можно обновить. Если через 5 лет вы случайно поцарапаете фасад, вам не нужно менять кухню. Наш мастер приедет, отшлифует слэб и заново покроет его маслом.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЛИЦА БРЕНДА -->
+    <section class="founders-section fade-in" style="padding-top: 0;">
+        <!-- Padding-top 0 чтобы не было большого отступа от белого блока гарантий к белому блоку основателей -->
+        <div class="section-header">
+            <h2>Два мастера. Одна философия.</h2>
+        </div>
+        <div class="founders-grid">
+            <div class="founder-card">
+                <div class="founder-img" style="background-image: url('img/we.webp');"></div>
+                <h4>Григорий и Максим</h4>
+                <span>Эксперты по массиву дерева</span>
+                <p class="founder-quote">Дерево не терпит суеты. Каждая трещина и сучок — это история, которую мы подчеркиваем, а не прячем. Наша задача — сохранить природу в интерьере.</p>
+            </div>
+            <div class="founder-card">
+                <div class="founder-img" style="background-image: url('img/anton.webp');"></div>
+                <h4>Антон</h4>
+                <span>Главный инженер и технолог</span>
+                <p class="founder-quote">Красота фасада бессмысленна, если кухня неудобна. Мы строим идеальный, технологичный фундамент для природной эстетики.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ОПЛАТА И ДОГОВОР -->
+    <section id="payment" class="fade-in">
+        <div class="payment-grid">
+            <div class="payment-info">
+                <h3>Прозрачность и безопасность</h3>
+                <p>Мы работаем строго по договору. Это гарантирует вам соблюдение сроков, фиксированную стоимость без скрытых платежей и уверенность в результате.</p>
+                <ul>
+                    <li><strong>50%</strong> — предоплата при заключении договора (на закупку материалов и слэбов).</li>
+                    <li><strong>40%</strong> — после готовности кухни в цеху, перед отгрузкой на ваш объект.</li>
+                    <li><strong>10%</strong> — финальный платеж после завершения монтажа и подписания акта приема-передачи.</li>
+                </ul>
+                <p>Оплата возможна любым удобным способом: наличные, перевод на расчетный счет компании, терминал.</p>
+            </div>
+            <div class="b2b-block">
+                <h4>Архитекторам и Дизайнерам</h4>
+                <p style="color: var(--text-light); font-size: 14px; margin-bottom: 16px;">Мы берем на себя полную реализацию столярной части ваших проектов. Делаем контрольные выкрасы, предоставляем 3D-текстуры слэбов, чертим сложные узлы примыкания.</p>
+                <p style="color: var(--text-main); font-weight: 500; font-size: 14px;">✓ Выплачиваем агентское вознаграждение строго в день поступления средств.</p>
             </div>
         </div>
     </section>
@@ -397,26 +422,60 @@
         
         <form class="contact-form" action="#" method="POST">
             <input type="text" placeholder="Ваше имя" required>
-            <input type="tel" placeholder="Телефон или WhatsApp" required>
+            <input type="tel" placeholder="Телефон" required>
             <button type="submit" class="btn" style="margin-top: 16px;">Получить консультацию</button>
-            <p style="font-size: 12px; color: var(--text-light); margin-top: 8px;">Для дизайнеров интерьера действуют специальные условия сотрудничества.</p>
+            
+            <!-- Альтернативный шаг (Мессенджеры) -->
+            <p style="margin-top: 16px; font-size: 14px; color: var(--text-light);">
+                Или отправьте проект нам напрямую:<br>
+                <a href="https://wa.me/79990000000?text=Здравствуйте!%20Хочу%20рассчитать%20стоимость%20кухни." target="_blank" class="whatsapp-link-text">Написать в WhatsApp</a>
+            </p>
         </form>
     </section>
 
-    <!-- Подвал -->
+    <!-- Плавающая кнопка WhatsApp -->
+    <a href="https://wa.me/79990000000?text=Здравствуйте!%20Я%20на%20вашем%20сайте,%20меня%20интересуют%20кухни%20из%20слэба." class="whatsapp-sticky" target="_blank" aria-label="Написать нам в WhatsApp">
+        <!-- SVG Иконка WhatsApp -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.031 0C5.385 0 0 5.388 0 12.038c0 2.128.554 4.204 1.606 6.035L.15 23.4l5.48-1.436c1.782.955 3.79 1.458 5.86 1.458 6.646 0 12.031-5.388 12.031-12.038S18.677 0 12.031 0zm0 21.411c-1.803 0-3.567-.484-5.115-1.403l-.367-.217-3.797.996.993-3.702-.238-.379C2.464 15.021 1.9 13.067 1.9 12.038 1.9 6.452 6.442 1.91 12.031 1.91c5.589 0 10.131 4.542 10.131 10.128 0 5.586-4.542 10.128-10.131 10.128zm5.556-7.587c-.305-.153-1.803-.891-2.083-.993-.28-.102-.484-.153-.688.153-.204.306-.789.993-.967 1.197-.178.204-.356.23-.661.077-2.036-.983-3.328-2.122-4.148-3.541-.178-.306.173-.291.472-.888.102-.204.051-.382-.025-.535-.076-.153-.688-1.658-.942-2.27-.248-.596-.5-.515-.688-.524-.178-.009-.382-.009-.586-.009-.204 0-.535.076-.815.382-.28.306-1.07 1.045-1.07 2.548s1.095 2.957 1.248 3.161c.153.204 2.155 3.292 5.22 4.538 2.051.834 2.825.894 3.864.76 1.157-.148 3.567-1.455 4.066-2.862.499-1.407.499-2.61.346-2.862-.152-.253-.559-.406-.864-.559z"/>
+        </svg>
+    </a>
+
+    <!-- ПОДВАЛ -->
     <footer>
-        <p>© 2024 WOOD & FORM. Столярное ателье премиальных кухонь.</p>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <span class="footer-logo">WOOD & FORM</span>
+                <p>Столярное ателье премиальных кухонь. Объединяем эстетику природных слэбов и безупречную инженерию современной мебели.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><a href="tel:+79990000000">+7 (999) 000-00-00</a></li>
+                    <li><a href="mailto:hello@woodform.ru">hello@woodform.ru</a></li>
+                    <li>г. Москва, ул. Производственная, 1<br><span style="font-size: 12px; color: #666;">(Встречи по предварительной записи)</span></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Информация</h4>
+                <ul>
+                    <li><a href="#history">О компании</a></li>
+                    <li><a href="#workflow">Этапы работы</a></li>
+                    <li><a href="#guarantees">Гарантии и уход</a></li>
+                    <li><a href="#payment">Дизайнерам интерьера</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 WOOD & FORM. Все права защищены.</p>
+            <p><a href="#">Политика конфиденциальности</a></p>
+        </div>
     </footer>
 
-    <!-- Скрипт для плавной анимации появления блоков при скролле -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
-
+            // Плавное появление элементов
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -425,7 +484,6 @@
                     }
                 });
             }, observerOptions);
-
             const fadeElements = document.querySelectorAll('.fade-in');
             fadeElements.forEach(el => observer.observe(el));
         });
